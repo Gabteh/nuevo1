@@ -27,18 +27,18 @@ def Quiniela():
         Fecha_3 = int(input("Ingrese El Año: "))
         Cfra_1 = int(input("¿Cuantas cifras desean apostar? 2, 3, 4: "))
         Menu = int(input("Ingrese 1 si desea salir: "))
-        if Cfra_1 == 2:
-            Numero_Ap = int(input("Ingrese el monto de la apuesta: "))
-            Cupon = 1
-            Number = [random.randint(1, 100) for _ in range(2)]
-            Comp_1 = []
-            Recaudacion.append([Numero_Ap])
-            while Cupon <= 2:
-                Ingreso_1 = int(input("Ingrese Los numeros del tiket de loteria: "))
-                Comp_1.append([Comp_1]) 
-                Cupon += 1
+        
+        Numero_Ap = int(input("Ingrese el monto de la apuesta: "))
+        Cupon = 1
+        Number = [random.randint(1, 100) for _ in range(Cfra_1)]
+        Comp_1 = []
+        Recaudacion.append([Numero_Ap])
+        while Cupon <= Cfra_1:
+           Ingreso_1 = int(input("Ingrese Los numeros del tiket de loteria: "))
+           Comp_1.append([Comp_1]) 
+           Cupon += 1
 
-            if vectores_son_iguales(Number, Comp_1):
+        if vectores_son_iguales(Number, Comp_1):
                 print("Usted gano el premio de la quiniela")
                 print("Su numero de documento", DNI_1)
                 print(Number, Comp_1)
@@ -47,7 +47,7 @@ def Quiniela():
                 VDNI.append([DNI_1])
                 print("La fecha es:", Fecha_1, "/", Fecha_2, "/", Fecha_3)
                 print("La cantidad apostada es", Ingreso_1 + Ingreso_1 * 10)
-            else:
+        else:
                 print("Usted Perdio el premio de la quiniela")
                 print("Su numero de documento", DNI_1)
                 print(Number, Comp_1)
@@ -56,67 +56,7 @@ def Quiniela():
                 print("La fecha es:", Fecha_1, "/", Fecha_2, "/", Fecha_3)
                 print("La cantidad apostada es:",  Numero_Ap)
 
-        elif Cfra_1 == 3:
-            Numero_Ap = int(input("Ingrese el monto de la apuesta: "))
-            Cupon = 1
-            Number = [random.randint(1, 100) for _ in range(3)]
-            Comp_1 = []
-            Ganancias += 1
-            Recaudacion.append([Numero_Ap])
-            while Cupon <= 3:
-                Ingreso_1 = int(input("Ingrese Los numeros del tiket de loteria: "))
-                Comp_1.append([Comp_1])
-                Cupon += 1
-
-            if vectores_son_iguales(Number, Comp_1):
-                print("Usted gano el premio de la quiniela")
-                print("Su numero de documento", DNI_1)
-                print(Number, Comp_1)
-                Ganador += 1
-                Ganlot.append(Ganador) 
-                VDNI.append([DNI_1])
-                print("La fecha es:", Fecha_1, "/", Fecha_2, "/", Fecha_3)
-                print("La cantidad apostada es", Ingreso_1 + Ingreso_1 * 10)
-            else:
-                print("Usted Perdio el premio de la quiniela")
-                print("Su numero de documento", DNI_1)
-                print(Number, Comp_1)
-                Perdedor += 1
-                Perlot.append(Perdedor)
-                print("La fecha es:", Fecha_1, "/", Fecha_2, "/", Fecha_3)
-                print("La cantidad apostada es:", Numero_Ap)
-
-        elif Cfra_1 == 4:
-            Numero_Ap = int(input("Ingrese el monto de la apuesta: "))
-            Cupon = 1
-            Number = [random.randint(1, 100) for _ in range(4)]
-            Comp_1 = []
-            Ganancias += 1
-            Recaudacion.append([Numero_Ap])
-            while Cupon <= 4:
-                Ingreso_1 = int(input("Ingrese Los numeros del tiket de loteria: "))
-                Comp_1.append([Comp_1])
-                Cupon += 1
-
-            if vectores_son_iguales(Number, Comp_1):
-                print("Usted gano el premio de la quiniela")
-                print("Su numero de documento", DNI_1)
-                print(Number, Comp_1)
-                Ganador += 1
-                Ganlot.append([Ganador])
-                VDNI.append([DNI_1])
-                print("La fecha es:", Fecha_1, "/", Fecha_2, "/", Fecha_3)
-                print("La cantidad apostada es", Ingreso_1 + Ingreso_1 * 10)
-            else:
-                print("Usted Perdio el premio de la quiniela")
-                print("Su numero de documento", DNI_1)
-                print(Number, Comp_1)
-                Perdedor += 1
-                Perlot.append([Perdedor])
-                print("La fecha es:", Fecha_1, "/", Fecha_2, "/", Fecha_3)
-                print("La cantidad apostada es:", Numero_Ap)
-        elif Menu ==1:
-            Mune()
+        
             
 def Quini_6():
     global Ganador, Perdedor, Ganancias
@@ -128,6 +68,10 @@ def Quini_6():
         Fecha_2 = int(input("Ingrese El Mes: "))
         Fecha_3 = int(input("Ingrese El Año: "))
         Cfra_1 = int(input("Ingrese 1 si quiere participar y 2 si quiere volver al menú principal: "))
+        if Cfra_1 == 2:
+                break
+                Menu()
+        
         Ganancias += 1
         Recaudacion.append([Numero_Ap])
         if Cfra_1 == 1:
